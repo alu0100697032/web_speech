@@ -1,7 +1,20 @@
 #mic{
-    display: block; 
-    background-color: #FF0040;
+    background-color: #0000FF;
+    font-weight: bold;
     height: 20px;
-    width: 50px;
-    text-align: center;
+    width: 100px;
+    position:absolute;
+    margin-left:auto;
+    margin-right:auto;
+    left:200;
+    right:0;
+}
+
+h2{
+    color: #2ECCFA;
+}
+
+body{
+    text-align:center;
+    vertical-align:middle;
 }

@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <title>Reconocimiento del habla</title>
     <link href="style.css" rel="stylesheet" />
+    <script src="jquery-1.11.3.min.js" type="text/javascript"></script>   
+    <script src="animacion.js" type="text/javascript"></script>   
 </head>
 <body>
-    <h2>Speech Recognition Demo</h2>
-    <section>
+    <h2>Speech Recognition</h2>
+    <section id="section">
         <textarea id="areaResult"></textarea>
         <textarea id="finalTranscript"></textarea>
-        <div id="mic">Mic</div>
+        
     </section>
+    <div id="mic">Microphone</div>
     <script>
         window.onload = function () {
 
@@ -67,7 +70,14 @@
 
                 finalTranscript.value = finalResult;
                 areaResult.value = interimResult;
-
+                
+                //Estas dos lineas deberían permitir mover el boton del micro
+                
+                if(interimResult == "derecha")
+                    $("#mic").animate({left: '200px'});
+                else if(interimResult == "izquierda")
+                    $("#mic").animate({right: '200px'});
+                    
                 if (interimResult.indexOf('terminar') != -1)
                     recognition.stop();
             };
