@@ -2,104 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reconocimiento del habla</title>
+    <title>Speech Recognition</title>
     <link href="style.css" rel="stylesheet" />
     <script src="jquery-1.11.3.min.js" type="text/javascript"></script>   
-    <script src="animacion.js" type="text/javascript"></script>   
+    <script src="animacion.js" type="text/javascript"></script>  
+    <script src="recognition.js" type="text/javascript"></script> 
 </head>
 <body>
     <h2>Speech Recognition</h2>
+    <div id="description">Simple test of Speech Recognition. Microphone in red means don´t recognizing. Microphone in blue means it is recognizing. Supported commands: <b>derecha</b>, <b>izquierda</b>, <b>arriba</b>, <b>abajo</b>, <b>ocultar</b>, <b>mostrar</b> y <b>terminar</b></div>
     <section id="section">
         <textarea id="areaResult"></textarea>
         <textarea id="finalTranscript"></textarea>
         
     </section>
     <div id="mic">Microphone</div>
-    <script>
-        window.onload = function () {
 
-            var recognition = new webkitSpeechRecognition();
-            recognition.continuous = true;
-            recognition.interimResults = true;
-            recognition.lang = "es";
-
-            mic.addEventListener('click', function () {
-                areaResult.focus();
-                recognition.start();
-            });
-
-            //events
-
-            recognition.onaudiostart = function (event) {
-                console.log("onaudiostart");
-            };
-
-            recognition.onsoundstart = function (event) {
-                console.log("onsoundstart");
-            };
-
-            recognition.onspeechstart = function (event) {
-                console.log("onspeechstart");
-            };
-
-            recognition.onspeechend = function (event) {
-                console.log("onspeechend");
-            };
-
-            recognition.onsoundend = function (event) {
-                console.log("onsoundend");
-
-            };
-
-            recognition.onaudioend = function (event) {
-                console.log("onaudioend");
-
-            };
-
-            recognition.onresult = function (event) {
-                console.log("onresult");
-                var interimResult = '',
-                    finalResult = '';
-                for (var i = event.resultIndex; i < event.results.length; ++i) {
-                    if (event.results[i].isFinal) {
-                        finalResult = event.results[i][0].transcript;
-                    } else {
-                        interimResult += event.results[i][0].transcript;
-                    }
-                }
-
-                finalTranscript.value = finalResult;
-                areaResult.value = interimResult;
-                
-                //Estas dos lineas deberían permitir mover el boton del micro
-                console.log(interimResult);
-                if(interimResult == "derecha")
-                    $("#mic").animate({left: '200px'});
-                else if(interimResult == "izquierda")
-                    $("#mic").animate({right: '200px'});
-                    
-                if (interimResult.indexOf('terminar') != -1)
-                    recognition.stop();
-            };
-
-            recognition.onnomatch = function (event) {
-                console.log("onnomatch");
-            };
-
-            recognition.onerror = function (event) {
-                console.log("onerror: " + event);
-
-            };
-
-            recognition.onstart = function (event) {
-                console.log("onstart");
-            };
-
-            recognition.onend = function (event) {
-                console.log("onend");
-            };
-
-        };
-    </script>
 </body>
 </html>

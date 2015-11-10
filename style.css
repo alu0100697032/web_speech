@@ -1,13 +1,20 @@
 #mic{
-    background-color: #0000FF;
+    background-color: #FF0000;
     font-weight: bold;
-    height: 20px;
-    width: 100px;
+    height: 2%;
+    width: 10%;
     position:absolute;
-    margin-left:auto;
-    margin-right:auto;
-    left:0;
-    right:0;
+    top:49%;
+    bottom:49%;
+    left:45%;
+    right:45%;
+}
+
+#description{
+    height: 10%;
+    width: 50%;
+    margin-left:25%;
+    margin-right:25%;
 }
 
 h2{
@@ -16,5 +23,9 @@ h2{
 
 body{
     text-align:center;
-    vertical-align:middle;
+    background-color: #CEF6F5;
+}
+
+p{
+    left:100px;
 }
