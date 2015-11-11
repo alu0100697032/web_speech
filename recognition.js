@@ -5,8 +5,7 @@ window.onload = function () {
     recognition.interimResults = true;
     recognition.lang = "es";
 
-    mic.addEventListener('click', function () {
-        areaResult.focus();
+    $("#mic").click(function () {
         recognition.start();
     });
 
@@ -51,11 +50,8 @@ window.onload = function () {
         }
 
         finalTranscript.value = finalResult;
-        areaResult.value = interimResult;
         
         //Estas dos lineas deberían permitir mover el boton del micro
-        //console.log(interimResult);
-        console.log(interimResult.lastIndexOf('derecha'));
         
         animar(interimResult, recognition);
     };

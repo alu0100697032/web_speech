@@ -29,3 +29,8 @@ body{
 p{
     left:100px;
 }
+
+textarea{
+    resize:none;
+    text-align:center;
+}
